@@ -26,8 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-gbmyjk8gx(_^%)*&ahn6_9*5eqf(3lfsx+1$b=v%kwfriq^*z5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-development = os.environ.get('DEVELOPMENT', False)
-DEBUG = development
+# development = os.environ.get('DEVELOPMENT', False)
+
+DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
