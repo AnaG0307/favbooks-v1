@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gbmyjk8gx(_^%)*&ahn6_9*5eqf(3lfsx+1$b=v%kwfriq^*z5'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-gbmyjk8gx(_^%)*&ahn6_9*5eqf(3lfsx+1$b=v%kwfriq^*z5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -97,8 +97,6 @@ LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
 
 
-
-
 WSGI_APPLICATION = 'favbooks.wsgi.application'
 
 
@@ -113,7 +111,7 @@ WSGI_APPLICATION = 'favbooks.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://xjjfvvpuhrntdy:316a80758b0a97a76c4f7f4885fae15c90df8fa711764599b6daba740aa1c869@ec2-34-255-21-191.eu-west-1.compute.amazonaws.com:5432/d9h30ouljohej3')
+    'default': dj_database_url.parse(os.environ.get'DATABSE_URL')
 }
 
 
