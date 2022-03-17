@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -104,11 +105,15 @@ WSGI_APPLICATION = 'favbooks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://xjjfvvpuhrntdy:316a80758b0a97a76c4f7f4885fae15c90df8fa711764599b6daba740aa1c869@ec2-34-255-21-191.eu-west-1.compute.amazonaws.com:5432/d9h30ouljohej3')
 }
 
 
